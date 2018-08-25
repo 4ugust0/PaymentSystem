@@ -1,11 +1,39 @@
 package com.company.models;
 
+import com.company.system.Core;
+
 import java.util.ArrayList;
 
-/**
- * Created by alunoic on 24/08/18.
- */
 public class Employee {
+    public Employee(String fullName, Address currentAddress, String employeeType, double employeeSalary) {
+        this.fullName = fullName;
+        this.currentAddress = currentAddress;
+        this.employeeType = employeeType;
+        this.employeeSalary = employeeSalary;
+
+        ArrayList<Employee> employeeArrayList = Core.getInstance().getEmployeeArrayList();
+
+        if(employeeArrayList.size() == 0){
+            this.employeeID = 1;
+        } else{
+            this.employeeID = employeeArrayList.get(employeeArrayList.size() - 1).getEmployeeID() + 1;
+        }
+
+        this.saleArrayList = new ArrayList<Sale>();
+        this.serviceTaxArrayList = new ArrayList<ServiceTax>();
+        this.timeCardArrayList = new ArrayList<TimeCard>();
+    }
+
+    private String fullName;
+    private Address currentAddress;
+    private String employeeType;
+    private double employeeSalary;
+    private int employeeID;
+
+    private ArrayList<Sale> saleArrayList;
+    private ArrayList<ServiceTax> serviceTaxArrayList;
+    private ArrayList<TimeCard> timeCardArrayList;
+
     public String getFullName() {
         return fullName;
     }
@@ -14,20 +42,12 @@ public class Employee {
         this.fullName = fullName;
     }
 
-    public Location getCurrentAddress() {
+    public Address getCurrentAddress() {
         return currentAddress;
     }
 
-    public void setCurrentAddress(Location currentAddress) {
+    public void setCurrentAddress(Address currentAddress) {
         this.currentAddress = currentAddress;
-    }
-
-    public int getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(int idNumber) {
-        this.idNumber = idNumber;
     }
 
     public String getEmployeeType() {
@@ -38,17 +58,23 @@ public class Employee {
         this.employeeType = employeeType;
     }
 
-    public Employee (String fullName, Location currentAddress, String employeeType, int idNumber) {
-        this.fullName = fullName;
-        this.currentAddress = currentAddress;
-        this.employeeType = employeeType;
-        this.idNumber = idNumber;
-        this.cardsList = new ArrayList<Card>();
+    public double getEmployeeSalary() {
+        return employeeSalary;
     }
 
-    private String fullName;
-    private Location currentAddress;
-    private int idNumber;
-    private String employeeType;
-    private ArrayList<Card> cardsList;
+    public void setEmployeeSalary(double employeeSalary) {
+        this.employeeSalary = employeeSalary;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public void addSale() {}
+    public void addServiceTax() {}
+    public void addTimeCard() {}
 }
