@@ -18,16 +18,21 @@ public class Utility {
     }
 
     public void printHeader() {
+        System.out.println();
         System.out.println("--- PAYMENTSHEET ---");
         System.out.println();
     }
 
     public void printError(String errorMessage) {
+        System.out.println();
         System.out.println(errorMessage);
         System.out.println();
+
+        this.getScanner().nextLine();
     }
 
     public void printError(String errorMessage, Exception e) {
+        System.out.println();
         System.out.println(errorMessage);
         System.out.println();
 

@@ -5,11 +5,11 @@ import com.company.system.Core;
 import java.util.ArrayList;
 
 public class Employee {
-    public Employee(String fullName, Address currentAddress, String employeeType, double employeeSalary) {
+    public Employee(String fullName, Address currentAddress, String employeeType, double baseSalary) {
         this.fullName = fullName;
         this.currentAddress = currentAddress;
         this.employeeType = employeeType;
-        this.employeeSalary = employeeSalary;
+        this.baseSalary = baseSalary;
 
         ArrayList<Employee> employeeArrayList = Core.getInstance().getEmployeeArrayList();
 
@@ -27,7 +27,7 @@ public class Employee {
     private String fullName;
     private Address currentAddress;
     private String employeeType;
-    private double employeeSalary;
+    private double baseSalary;
     private int employeeID;
 
     private ArrayList<Sale> saleArrayList;
@@ -58,12 +58,12 @@ public class Employee {
         this.employeeType = employeeType;
     }
 
-    public double getEmployeeSalary() {
-        return employeeSalary;
+    public double getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setEmployeeSalary(double employeeSalary) {
-        this.employeeSalary = employeeSalary;
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
     public int getEmployeeID() {
