@@ -41,4 +41,12 @@ public class Utility {
 
         this.getScanner().nextLine();
     }
+
+    public void successfulyDone(){
+        System.out.println();
+        System.out.println("Successfuly !");
+        System.out.println();
+
+        this.getScanner().nextLine();
+    }
 }

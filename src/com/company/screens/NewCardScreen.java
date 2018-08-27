@@ -6,6 +6,5 @@ public class NewCardScreen {
     public static NewCardScreen getInstance() { return singleIntance; }
 
     public void startNewCardScreen() {
-
     }
 }

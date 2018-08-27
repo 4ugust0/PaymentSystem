@@ -17,4 +17,14 @@ public class Core {
     public ArrayList<Employee> getEmployeeArrayList() {
         return employeeArrayList;
     }
+
+    public void addNewEmployee(Employee newEmployee){
+        this.employeeArrayList.add(newEmployee);
+    }
+
+    public void listEmployee(){
+        for(Employee e : this.employeeArrayList){
+            System.out.println(e);
+        }
+    }
 }

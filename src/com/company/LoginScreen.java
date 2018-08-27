@@ -21,9 +21,13 @@ public class LoginScreen {
                 String attemptPassword = Utility.getInstance().getScanner().nextLine();
 
                 if(adminUsername.equals(attemptUsername) && adminPassword.equals(attemptPassword)){
+                    errorCounter = 0;
+
+                    Utility.getInstance().successfulyDone();
+
                     MainScreen.getInstance().startMainScreen();
                 } else {
-                    Utility.getInstance().printError("Invalide username or password, try again");
+                    Utility.getInstance().printError("Invalid username or password, try again");
                 }
             }
 

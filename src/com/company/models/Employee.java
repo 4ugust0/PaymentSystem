@@ -5,7 +5,7 @@ import com.company.system.Core;
 import java.util.ArrayList;
 
 public class Employee {
-    public Employee(String fullName, Address currentAddress, String employeeType, double baseSalary) {
+    public Employee(String fullName, Address currentAddress, String employeeType, double baseSalary, int paymentDay) {
         this.fullName = fullName;
         this.currentAddress = currentAddress;
         this.employeeType = employeeType;
@@ -22,6 +22,8 @@ public class Employee {
         this.saleArrayList = new ArrayList<Sale>();
         this.serviceTaxArrayList = new ArrayList<ServiceTax>();
         this.timeCardArrayList = new ArrayList<TimeCard>();
+
+        this.paymentDay = paymentDay;
     }
 
     private String fullName;
@@ -29,6 +31,7 @@ public class Employee {
     private String employeeType;
     private double baseSalary;
     private int employeeID;
+    private int paymentDay;
 
     private ArrayList<Sale> saleArrayList;
     private ArrayList<ServiceTax> serviceTaxArrayList;
@@ -74,7 +77,11 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
-    public void addSale() {}
-    public void addServiceTax() {}
-    public void addTimeCard() {}
+    public int getPaymentDay() {
+        return paymentDay;
+    }
+
+    public void setPaymentDay(int paymentDay) {
+        this.paymentDay = paymentDay;
+    }
 }
