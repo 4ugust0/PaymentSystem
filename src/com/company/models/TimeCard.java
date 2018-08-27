@@ -1,37 +1,27 @@
 package com.company.models;
 
 public class TimeCard {
-    public TimeCard(String dmyDate, String inTime, String outTime) {
+    public TimeCard (Date dmyDate, int hoursWorked){
         this.dmyDate = dmyDate;
-        this.inTime = inTime;
-        this.outTime = outTime;
+        this.hoursWorked = hoursWorked;
     }
 
-    private String dmyDate;
-    private String inTime;
-    private String outTime;
+    private Date dmyDate;
+    private int hoursWorked;
 
-    public String getDmyDate() {
+    public Date getDmyDate() {
         return dmyDate;
     }
 
-    public void setDmyDate(String dmyDate) {
+    public void setDmyDate(Date dmyDate) {
         this.dmyDate = dmyDate;
     }
 
-    public String getInTime() {
-        return inTime;
+    public int getHoursWorked() {
+        return hoursWorked;
     }
 
-    public void setInTime(String inTime) {
-        this.inTime = inTime;
-    }
-
-    public String getOutTime() {
-        return outTime;
-    }
-
-    public void setOutTime(String outTime) {
-        this.outTime = outTime;
+    public void setHoursWorked(int hoursWorked) {
+        this.hoursWorked = hoursWorked;
     }
 }

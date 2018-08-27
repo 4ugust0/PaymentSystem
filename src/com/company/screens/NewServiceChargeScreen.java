@@ -2,19 +2,20 @@ package com.company.screens;
 
 import com.company.models.Date;
 import com.company.models.Employee;
-import com.company.models.Sale;
+import com.company.models.ServiceCharge;
 import com.company.models.Time;
 import com.company.system.Core;
 import com.company.util.Utility;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.ArrayList;
 
-public class NewSaleScreen {
-    private NewSaleScreen() {}
-    private static NewSaleScreen singleInstance = new NewSaleScreen();
-    public static NewSaleScreen getInstance() { return singleInstance; }
+public class NewServiceChargeScreen {
+    private NewServiceChargeScreen() {}
+    private static NewServiceChargeScreen singleInstance = new NewServiceChargeScreen();
+    public static NewServiceChargeScreen getInstance() { return singleInstance; }
 
-    public void startNewSaleScreen() {
+    public void startNewServiceChargeScreen() {
         try {
             Utility.getInstance().clearScreen();
             Utility.getInstance().printHeader();
@@ -38,23 +39,23 @@ public class NewSaleScreen {
             System.out.print("Hour: ");
             int hour = Utility.getInstance().getScanner().nextInt();
 
-            Time saleTime = new Time(minute, hour);
+            Time serviceTime = new Time(minute, hour);
 
-            System.out.print("Type the sale value: ");
-            double saleValue = Utility.getInstance().getScanner().nextDouble();
+            System.out.print("Type the service charge: ");
+            double chargeValue = Utility.getInstance().getScanner().nextDouble();
 
-            if(true /*needs to validate the date and time*/ && saleValue > 0) {
+            System.out.print("Type the service description: ");
+            String serviceDescription = Utility.getInstance().getScanner().nextLine();
 
-                Sale newSale = new Sale(dmyDate, saleTime, saleValue);
+            if(true /*needs to validate the date and time*/){
+
+                ServiceCharge newServiceCharge = new ServiceCharge(serviceDescription, dmyDate, serviceTime, chargeValue);
 
                 ArrayList<Employee> employeeArrayList = Core.getInstance().getEmployeeArrayList();
 
                 for(int i = 0; i < employeeArrayList.size(); ++i){
                     if(employeeArrayList.get(i).getEmployeeID() == employeeID){
-                        employeeArrayList.get(i).getSaleArrayList().add(newSale);
-
-                        Utility.getInstance().successfulyDone();
-                        return;
+                        employeeArrayList.get(i).getServiceChargeArrayList().add(newServiceCharge);
                     }
                 }
 
@@ -64,8 +65,8 @@ public class NewSaleScreen {
                 Utility.getInstance().printError("Invalid entries");
             }
 
-        } catch (Exception e){
-            Utility.getInstance().printError("Type valid entries", e);
+        } catch (Exception e) {
+            Utility.getInstance().printError("Type a valid entry", e);
         }
     }
 }

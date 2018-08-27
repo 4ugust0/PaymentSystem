@@ -1,29 +1,29 @@
 package com.company.models;
 
 public class Sale {
-    public Sale(String dmyDate, String saleTime, double saleValue) {
+    public Sale(Date dmyDate, Time saleTime, double saleValue) {
         this.dmyDate = dmyDate;
         this.saleTime = saleTime;
         this.saleValue = saleValue;
     }
 
-    private String dmyDate;
-    private String saleTime;
+    private Date dmyDate;
+    private Time saleTime;
     private double saleValue;
 
-    public String getDmyDate() {
+    public Date getDmyDate() {
         return dmyDate;
     }
 
-    public void setDmyDate(String dmyDate) {
+    public void setDmyDate(Date dmyDate) {
         this.dmyDate = dmyDate;
     }
 
-    public String getSaleTime() {
+    public Time getSaleTime() {
         return saleTime;
     }
 
-    public void setSaleTime(String saleTime) {
+    public void setSaleTime(Time saleTime) {
         this.saleTime = saleTime;
     }
 

@@ -5,7 +5,7 @@ import com.company.system.Core;
 import java.util.ArrayList;
 
 public class Employee {
-    public Employee(String fullName, Address currentAddress, String employeeType, double baseSalary, int paymentDay) {
+    public Employee(String fullName, Address currentAddress, String employeeType, double baseSalary, int paymentDay, String paymentMethod, double unionFee) {
         this.fullName = fullName;
         this.currentAddress = currentAddress;
         this.employeeType = employeeType;
@@ -20,10 +20,18 @@ public class Employee {
         }
 
         this.saleArrayList = new ArrayList<Sale>();
-        this.serviceTaxArrayList = new ArrayList<ServiceTax>();
+        this.serviceChargeArrayList = new ArrayList<ServiceCharge>();
         this.timeCardArrayList = new ArrayList<TimeCard>();
 
         this.paymentDay = paymentDay;
+        this.paymentMethod = paymentMethod;
+        this.unionFee = unionFee;
+
+        if(unionFee == 0.00){
+            this.belongsUnion = false;
+        } else {
+            this.belongsUnion = true;
+        }
     }
 
     private String fullName;
@@ -32,9 +40,12 @@ public class Employee {
     private double baseSalary;
     private int employeeID;
     private int paymentDay;
+    private String paymentMethod;
+    private double unionFee;
+    private boolean belongsUnion;
 
     private ArrayList<Sale> saleArrayList;
-    private ArrayList<ServiceTax> serviceTaxArrayList;
+    private ArrayList<ServiceCharge> serviceChargeArrayList;
     private ArrayList<TimeCard> timeCardArrayList;
 
     public String getFullName() {
@@ -83,5 +94,41 @@ public class Employee {
 
     public void setPaymentDay(int paymentDay) {
         this.paymentDay = paymentDay;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public double getUnionFee() {
+        return unionFee;
+    }
+
+    public void setUnionFee(double unionFee) {
+        this.unionFee = unionFee;
+    }
+
+    public ArrayList<Sale> getSaleArrayList() {
+        return saleArrayList;
+    }
+
+    public ArrayList<ServiceCharge> getServiceChargeArrayList() {
+        return serviceChargeArrayList;
+    }
+
+    public ArrayList<TimeCard> getTimeCardArrayList() {
+        return timeCardArrayList;
+    }
+
+    public boolean isBelongsUnion() {
+        return belongsUnion;
+    }
+
+    public void setBelongsUnion(boolean belongsUnion) {
+        this.belongsUnion = belongsUnion;
     }
 }

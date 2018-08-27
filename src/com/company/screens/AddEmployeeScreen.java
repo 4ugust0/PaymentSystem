@@ -6,6 +6,7 @@ import com.company.system.Core;
 import com.company.util.Utility;
 
 import javax.rmi.CORBA.Util;
+import java.util.ArrayList;
 import java.util.EnumMap;
 
 public class AddEmployeeScreen {
@@ -52,15 +53,30 @@ public class AddEmployeeScreen {
             System.out.print("Type the payment day: ");
             int paymentDay = Utility.getInstance().getScanner().nextInt();
 
-            if(employeeType.matches("HOURLY|SALARIED|COMMISSIONED") && baseSalary > 0 && houseNumber >= 0 && paymentDay > 0 && paymentDay < 29) {
+            System.out.print("Payment method(mail, personally or deposit): ");
+            String paymentMethod = Utility.getInstance().getScanner().nextLine().toUpperCase();
+
+            System.out.print("Union fee: ");
+            double unionFee = Utility.getInstance().getScanner().nextDouble();
+
+            if(paymentMethod.matches("MAIL|PERSONALLY|DEPOSIT") &&
+                    employeeType.matches("HOURLY|SALARIED|COMMISSIONED") &&
+                    unionFee >= 0 &&
+                    baseSalary > 0 && houseNumber >= 0 &&
+                    paymentDay > 0 && paymentDay < 29) {
+
                 Employee newEmployee = new Employee(
                         fullName,
                         currentAddress,
                         employeeType,
                         baseSalary,
-                        paymentDay);
+                        paymentDay,
+                        paymentMethod,
+                        unionFee);
 
-                Core.getInstance().addNewEmployee(newEmployee);
+                ArrayList<Employee> employeeArrayList = Core.getInstance().getEmployeeArrayList();
+
+                employeeArrayList.add(newEmployee);
 
                 Utility.getInstance().successfulyDone();
 
