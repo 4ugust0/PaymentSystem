@@ -1,7 +1,7 @@
 package com.company;
 
+import com.company.screens.UndoRedoScreen;
 import com.company.system.Core;
-import com.company.system.MainScreen;
 import com.company.util.Utility;
 
 public class LoginScreen {
@@ -22,7 +22,7 @@ public class LoginScreen {
 
                     Utility.getInstance().successfulyDone();
 
-                    MainScreen.getInstance().startMainScreen();
+                    UndoRedoScreen.MainScreen.getInstance().startMainScreen();
                 } else {
                     Utility.getInstance().printError("Invalid username or password, try again");
                 }

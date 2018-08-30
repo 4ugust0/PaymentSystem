@@ -28,9 +28,9 @@ public class Employee {
         this.unionFee = unionFee;
 
         if(unionFee == 0.00){
-            this.belongsUnion = false;
+            this.unionMember = false;
         } else {
-            this.belongsUnion = true;
+            this.unionMember = true;
         }
     }
 
@@ -42,7 +42,7 @@ public class Employee {
     private int paymentDay;
     private String paymentMethod;
     private double unionFee;
-    private boolean belongsUnion;
+    private boolean unionMember;
 
     private ArrayList<Sale> saleArrayList;
     private ArrayList<ServiceCharge> serviceChargeArrayList;
@@ -124,11 +124,11 @@ public class Employee {
         return timeCardArrayList;
     }
 
-    public boolean isBelongsUnion() {
-        return belongsUnion;
+    public boolean isUnionMember() {
+        return unionMember;
     }
 
-    public void setBelongsUnion(boolean belongsUnion) {
-        this.belongsUnion = belongsUnion;
+    public void setUnionMember(boolean unionMember) {
+        this.unionMember = unionMember;
     }
 }

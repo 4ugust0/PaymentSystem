@@ -49,4 +49,8 @@ public class Utility {
 
         this.getScanner().nextLine();
     }
+
+    public int max(int a, int b){
+        return a>b ? a : b;
+    }
 }

@@ -176,9 +176,9 @@ public class ChangeEmployeeInfoScreen {
                         employeeArrayList.get(i).setUnionFee(newUnionFee);
 
                         if(newUnionFee == 0.00){
-                            employeeArrayList.get(i).setBelongsUnion(false);
+                            employeeArrayList.get(i).setUnionMember(false);
                         } else {
-                            employeeArrayList.get(i).setBelongsUnion(true);
+                            employeeArrayList.get(i).setUnionMember(true);
                         }
 
                         Utility.getInstance().successfulyDone();
